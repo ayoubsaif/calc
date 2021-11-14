@@ -1,0 +1,111 @@
+<!--
+ @Author: Ayoub Saif
+ @Name: Calculadora Entornos 2º DAW
+ @Date: November 2021
+-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Calculadora</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div class="theme-settings">
+            <div class="grid">
+                <label class="card">
+                  <input type="radio" name="theme-chooser" class="card__input theme" data-theme="theme__grey" />
+                  <div class="card__body">
+                    <div class="card__body-cover"><img class="card__body-cover-image" src="https://i.ibb.co/zXmHzBk/category-a.png"/><span class="card__body-cover-checkbox"> 
+                        <svg class="card__body-cover-checkbox--svg" viewBox="0 0 12 10"> <polyline points="1.5 6 4.5 9 10.5 1"></polyline> </svg></span></div>
+                    <header class="card__body-header">
+                      <h2 class="card__body-header-title">Theme Grey</h2>
+                      <p class="card__body-header-subtitle">Grey palette theme</p>
+                    </header>
+                  </div>
+                </label>
+                <label class="card">
+                  <input type="radio" name="theme-chooser" class="card__input theme" data-theme="theme__blue" />
+                  <div class="card__body">
+                    <div class="card__body-cover"><img class="card__body-cover-image" src="https://i.ibb.co/cXjw2Gz/category-b.png"/><span class="card__body-cover-checkbox"> 
+                        <svg class="card__body-cover-checkbox--svg" viewBox="0 0 12 10"> <polyline points="1.5 6 4.5 9 10.5 1"></polyline> </svg></span></div>
+                    <header class="card__body-header">
+                      <h2 class="card__body-header-title">Theme Blue</h2>
+                      <p class="card__body-header-subtitle">Blue palette theme</p>
+                    </header>
+                  </div>
+                </label>
+                <label class="card">
+                  <input type="radio" name="theme-chooser" class="card__input theme" data-theme="theme__orange" />
+                  <div class="card__body">
+                    <div class="card__body-cover"><img class="card__body-cover-image" src="https://i.ibb.co/nDbfH9B/category-c.png"/><span class="card__body-cover-checkbox"> 
+                        <svg class="card__body-cover-checkbox--svg" viewBox="0 0 12 10"><polyline points="1.5 6 4.5 9 10.5 1"></polyline></svg></span></div>
+                    <header class="card__body-header">
+                      <h2 class="card__body-header-title">Theme Orange</h2>
+                      <p class="card__body-header-subtitle">Orange palette theme</p>
+                    </header>
+                  </div>
+                </label>
+              </div>
+        </div>
+        <div class="grid-item">
+            <label id="switch" class="switch">
+                <input type="checkbox" onchange="toggleTheme()" id="slider">
+                <span class="slider round"></span>
+            </label>
+            <div class="calc-container">
+                
+                <div class="screen">
+                    <div class="flex-end fz25" id="oldNumber">
+                        <span id="oldNum"></span>
+                        <span id="operator"></span>
+                    </div>
+                    <div class="flex fz35">
+                        <span data-result="" id="screen-input">0</span>
+                    </div>
+                </div>
+                <div class="keyboard">
+                    <div class="flex">
+                        <button id="clearAll" class="clear btn">C</button>
+                        <button id="clearCurNum" class="btn">CE</button>
+                        <button data-ops='%' class="ops btn">%</button>
+                        <button id="delLastNum" class="ops btn">←</button>
+                    </div>
+                    <div class="flex">
+                        <button data-num='7' class="num btn">7</button>
+                        <button data-num='8' class="num btn">8</button>
+                        <button data-num='9' class="num btn">9</button>
+                        <button data-ops='/' class="ops btn">/</button>
+                    </div>
+                    <div class="flex">
+                        <button data-num='4' class="num btn">4</button>
+                        <button data-num='5' class="num btn">5</button>
+                        <button data-num='6' class="num btn">6</button>
+                        <button data-ops='x' class="ops btn">X</button>
+                    </div>
+                    <div class="flex">
+                        <button data-num='1' class="num btn">1</button>
+                        <button data-num='2' class="num btn">2</button>
+                        <button data-num='3' class="num btn">3</button>
+                        <button data-ops='-' class="ops btn">-</button>
+                    </div>
+                    <div class="flex">
+                        <button data-num='0' class="num btn">0</button>
+                        <button data-num='.' class="num btn">.</button>
+                        <button id="result"  class="equal btn">=</button>
+                        <button data-ops='+' class="ops btn">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script src="js/app.js"></script>
+        <script src="js/theme.js"></script>
+    </body>
+</html>
+
+<!--
+ @Author: Ayoub Saif
+ @Name: Calculadora Entornos 2º DAW
+ @Date: November 2021
+-->
