@@ -24,7 +24,6 @@ function toggleTheme() {
     if ( localStorage.getItem('theme') ){
         setTheme(localStorage.getItem('theme'));
     }
-    //document.getElementById('slider').checked = false;
     
     var nums = el(".theme")
     
