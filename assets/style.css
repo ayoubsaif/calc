@@ -1,0 +1,515 @@
+/**
+ * @Author Ayoub Saif
+ *
+ */
+
+ /*Import Fonts*/
+@font-face {
+    font-family: 'DsDigi';
+    src: 
+        url('font/DSDIGI.eot') format('embedded-opentype'), 
+        url('font/DSDIGI.ttf') format('truetype'), 
+        url('font/DSDIGI.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Pocket Calculator Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Pocket Calculator Regular'), url('font/POCKC___.woff') format('woff');
+}
+
+/*Default style values*/
+:root{
+  --background-color: #1d1c2e;
+  --border-radius: 8px;
+
+  --btn-radius: 0.5rem;
+  --btn-num-color: #fff;
+  --btn-num-bg: hsl(249,7%,62%);
+  --btn-num-bg-dark: rgb(112, 111, 121);
+
+  --btn-color: #fff;
+  --btn-bg: rgb(67, 67, 107);
+  --btn-bg-dark: rgb(51, 49, 70);
+
+  --btn-c-color: #ffffff;
+  --btn-c-bg: hsl(343,33%,59%);
+  --btn-c-bg-dark: rgb(112, 77, 79);
+
+  --screen-font: 'DsDigi';
+  --screen-bg: #d3e1e1;
+  --screen-font-color: #000404;
+}
+
+.theme__1{
+  --background-color: #1d1c2e;
+  --border-radius: 8px;
+
+  --btn-radius: 0.5rem;
+  --btn-num-color: #fff;
+  --btn-num-bg: hsl(249,7%,62%);
+  --btn-num-bg-dark: rgb(112, 111, 121);
+
+  --btn-color: #fff;
+  --btn-bg: rgb(67, 67, 107);
+  --btn-bg-dark: rgb(51, 49, 70);
+
+  --btn-c-color: #ffffff;
+  --btn-c-bg: hsl(343,33%,59%);
+  --btn-c-bg-dark: rgb(112, 77, 79);
+
+  --screen-font: 'DsDigi';
+  --screen-bg: #d3e1e1;
+  --screen-font-color: #000404;
+}
+.theme__2{
+  --background-color: #e7e7e7;
+  --border-radius: 1rem;
+
+  --btn-radius: 3rem;
+  --btn-num-color: rgb(255, 255, 255);
+  --btn-num-bg: hsl(26,7%,40%);
+  --btn-num-bg-dark: rgb(78, 73, 69);
+  
+  --btn-color: #3d3d3d;
+  --btn-bg: rgb(255, 255, 255);
+  --btn-bg-dark: rgb(175, 175, 175);
+
+  --btn-c-color: #3d3d3d;
+  --btn-c-bg: hsl(26,46%,54%);
+  --btn-c-bg-dark: rgb(151, 103, 65);
+
+  --screen-font: 'Pocket Calculator Regular';
+  --screen-bg: #d3e1e1;
+  --screen-font-color: #000404;
+}
+.theme__3{
+  --background-color: hsl(207,56%,50%);
+  --border-radius: 1rem;
+
+  --btn-radius: 1rem;
+  --btn-num-color: #fff;
+  --btn-num-bg: #3068af;
+  --btn-num-bg-dark: #27528b;
+
+  --btn-color: #fff;
+  --btn-bg: #25528b;
+  --btn-bg-dark: #1c3c66;
+
+  --btn-c-color: #3d3d3d;
+  --btn-c-bg: #fff;
+  --btn-c-bg-dark: rgb(192, 192, 192);
+
+  --screen-font: 'Pocket Calculator Regular';
+  --screen-bg: #d3e1e1;
+  --screen-font-color: #000404;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.block { display: block; }
+
+.fz10{ font-size: 10px;}
+.fz12{ font-size: 12px; }
+.fz14{ font-size: 14px; }
+.fz16{ font-size: 16px; }
+.fz18{ font-size: 18px; }
+.fz20{ font-size: 20px; }
+.fz25{ font-size: 25px; }
+.fz30{ font-size: 30px; }
+.fz35{ font-size: 35px; }
+.fz40{ font-size: 40px; }
+
+.calc-container {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  background-color: var(--background-color);
+  max-width: 30em;
+  border-radius: var(--border-radius);
+  -webkit-box-shadow: 4px 6px 8px -5px #000000; 
+  box-shadow: 4px 6px 8px -5px #000000;
+  padding: 1em;
+  overflow: hidden;
+  transition: 1s background-color;
+}
+
+.calc-container .grey-theme {
+  background: rgb(104,104,104);
+  background: linear-gradient(38deg, rgba(104,104,104,1) 0%, rgba(179,187,198,1) 100%); 
+}
+
+.calc-logo{
+  width: 0.5em;
+}
+
+.screen {
+  font-family: var(--screen-font), sans-serif;
+  color:var(--screen-font-color);
+  position: relative;
+  background-color: var(--screen-bg);
+  border-style: inset;
+  border-color: var(--background-color);
+  border-radius: var(--border-radius);
+  width: auto;
+  height: 4em;
+  align-items: center;
+  text-align: right;
+  vertical-align: middle;
+  padding: 1em 0.5em 1em 0.5em;
+  overflow: hidden;
+  transition: all 0.5s ;
+}
+#screen-input{
+  position: absolute;
+  right: 0.5em;
+  bottom: 0.5em;
+}
+
+.effect {
+  transition: all .5s;
+}
+
+.keyboard {
+  padding-top: 1em;
+}
+
+.flex-end {
+  display: flex;
+  justify-content: flex-end;
+}
+.flex-end > span {
+  margin-right: 0.2em;
+}
+
+.flex {
+  display: flex;
+}
+
+.jc-spcbtw {
+  justify-content: space-between;
+  grid-gap: 1rem;
+}
+
+.jc-center {
+  justify-content: center;
+}
+
+.flex-column {
+  flex-direction: column;
+  grid-gap: 1rem;
+}
+
+.flex-row {
+  flex-direction: row;
+  grid-gap: 1rem;
+}
+
+.flex-center {
+  align-items: center;
+}
+
+.pd-10em{
+  padding: 5em;
+}
+
+.top10 {
+  padding-top: 10px;
+}
+
+/**.btn {
+  background-color: var(--btn-bg);
+  color: var(--btn-num-color);
+  border-style: inset;
+  border-radius: var(--border-radius);
+  font-size: 25px;
+  width: 5em;
+  height: 4em;
+  margin: 0.2em;
+  text-align: center;
+  align-items: center;
+  vertical-align: middle;
+  transition: all 0.5s;
+}**/
+
+
+/*3d button*/
+.btn {
+  background: var(--btn-bg-dark);
+  border-radius: var(--btn-radius);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline-offset: 4px;
+}
+.front {
+  text-align: center;
+  background: var(--btn-bg);
+  color: var(--btn-color);
+  width: 1rem;
+  display: block;
+  padding: 12px 42px;
+  border-radius: var(--btn-radius);
+  font-size: 1.25rem;
+  transform: translateY(-5px);
+}
+
+.btn:active .front {
+  transform: translateY(-3px);
+}
+
+/*3d button*/
+
+.num { 
+  background-color: var(--btn-num-bg-dark);
+}
+
+.num > span {
+  color: var(--btn-num-color);
+  background-color: var(--btn-num-bg);
+}
+
+.clear { 
+  background-color:var(--btn-c-bg-dark);
+}
+
+.clear > span {
+  color: var(--btn-c-color);
+  background-color: var(--btn-c-bg);
+}
+
+.btn:active{
+  transition: ease-in .1s;
+}
+
+button {
+  outline: none;
+}
+button:focus-visible {
+  outline: revert;
+}
+
+/*Switch slider style*/
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+  
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+  
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 40px;
+  width: 40px;
+  left: 0px;
+  bottom: 4px;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  -webkit-transition: 0.4s;
+  transition: all 0.4s;
+  box-shadow: 0 0px 15px #2020203d;
+  background: white url('https://i.ibb.co/FxzBYR9/night.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(24px);
+  -ms-transform: translateX(24px);
+  transform: translateX(24px);
+  background: white url('https://i.ibb.co/7JfqXxB/sunny.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+
+/*Color Theme Change Card*/
+
+.theme-settings > .grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+}
+.card {
+  --background: #fff;
+  --background-checkbox: #0082ff;
+  --background-image: #fff, rgba(0, 107, 175, 0.2);
+  --text-color: #666;
+  --text-headline: #000;
+  --card-shadow: #0082ff;
+  --card-height: 100px;
+  --card-width: 100px;
+  --card-radius: 12px;
+  --header-height: 47px;
+  --blend-mode: overlay;
+  --transition: 0.15s;
+  -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.card:nth-child(odd) .card__body-cover-image {
+  --x-y1: 100% 90%;
+  --x-y2: 67% 83%;
+  --x-y3: 33% 90%;
+  --x-y4: 0% 85%;
+}
+.card:nth-child(even) .card__body-cover-image {
+  --x-y1: 100% 85%;
+  --x-y2: 73% 93%;
+  --x-y3: 25% 85%;
+  --x-y4: 0% 90%;
+}
+.card__input {
+  position: absolute;
+  display: block;
+  outline: none;
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  -webkit-appearance: none;
+}
+.card__input:checked ~ .card__body {
+  --shadow: 0 0 0 3px var(--card-shadow);
+}
+.card__input:checked ~ .card__body .card__body-cover-checkbox {
+  --check-bg: var(--background-checkbox);
+  --check-border: #fff;
+  --check-scale: 1;
+  --check-opacity: 1;
+}
+.card__input:checked ~ .card__body .card__body-cover-checkbox--svg {
+  --stroke-color: #fff;
+  --stroke-dashoffset: 0;
+}
+.card__input:checked ~ .card__body .card__body-cover-image {
+  --filter-bg: grayscale(0);
+}
+.card__input:disabled ~ .card__body {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+.card__input:disabled ~ .card__body:active {
+  --scale: 1;
+}
+.card__body {
+  grid-auto-rows: calc(var(--card-height) - var(--header-height)) auto;
+  background: var(--background);
+  height: var(--card-height);
+  width: var(--card-width);
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  box-shadow: var(--shadow, 0 4px 4px 0 rgba(0, 0, 0, 0.02));
+  transition: transform var(--transition), box-shadow var(--transition);
+  transform: scale(var(--scale, 1)) translateZ(0);
+}
+.card__body:active {
+  --scale: 0.96;
+}
+.card__body-cover {
+  --c-border: var(--card-radius) var(--card-radius) 0 0;
+  --c-width: 100%;
+  --c-height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.card__body-cover-image {
+  width: var(--c-width);
+  height: var(--c-height);
+  -o-object-fit: cover;
+      object-fit: cover;
+  border-radius: var(--c-border);
+  filter: var(--filter-bg, grayscale(1));
+  -webkit-clip-path: polygon(0% 0%, 100% 0%, var(--x-y1, 100% 90%), var(--x-y2, 67% 83%), var(--x-y3, 33% 90%), var(--x-y4, 0% 85%));
+          clip-path: polygon(0% 0%, 100% 0%, var(--x-y1, 100% 90%), var(--x-y2, 67% 83%), var(--x-y3, 33% 90%), var(--x-y4, 0% 85%));
+}
+.card__body-cover-checkbox {
+  background: var(--check-bg, var(--background-checkbox));
+  border: 2px solid var(--check-border, #fff);
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  z-index: 1;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  opacity: var(--check-opacity, 0);
+  transition: transform var(--transition), opacity calc(var(--transition) * 1.2) linear;
+  transform: scale(var(--check-scale, 0));
+}
+.card__body-cover-checkbox--svg {
+  width: 13px;
+  height: 11px;
+  display: inline-block;
+  vertical-align: top;
+  fill: none;
+  margin: 7px 0 0 5px;
+  stroke: var(--stroke-color, #fff);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 16px;
+  stroke-dashoffset: var(--stroke-dashoffset, 16px);
+  transition: stroke-dashoffset 0.4s ease var(--transition);
+}
+.card__body-header {
+  height: var(--header-height);
+  background: var(--background);
+  padding: 0 10px 10px 10px;
+}
+.card__body-header-title {
+  color: var(--text-headline);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.card__body-header-subtitle {
+  color: var(--text-color);
+  font-weight: 500;
+  font-size: 13px;
+}

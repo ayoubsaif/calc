@@ -82,6 +82,7 @@ function setCurrentNumber(number) {
 /**
  * @class
  * @classdesc Function to return rounded number with Math.pow native function
+ * @return {number} Return number formatted
  */
 function getNumberPow(num) {
     const num1Digits = (num.toString().split('.')[1] || '').length;
@@ -113,6 +114,7 @@ function setOpsByKey(op) {
  * @param {string} op Operator type (/*-+%)
  */
 function setOperator(op) {
+    if (isNaN(curNum)) {return;}
     if (resultNum) {
         oldNum = resultNum;
     } else {
@@ -145,9 +147,9 @@ function setResult(res) {
 
     if (!isFinite(res)) {
         if (isNaN(res)) {
-            resultNum = "Lo rompiste pendejo";
+            resultNum = "ERROR";
         } else {
-            resultNum = "Ché boludo que haces";
+            resultNum = "ERR. NUM INFINITO";
         }
     }
 
